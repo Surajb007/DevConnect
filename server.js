@@ -5,8 +5,12 @@ const app = express();
 
 connectDB(); // Connect the database
 
-app.get('/', (req, res) => res.send('API running'));
+// Initialize Middleware
 
+app.use(express.json({ extended: false })); // Previously BodyParser.json()
+
+// Define Routes
+app.get('/', (req, res) => res.send('API running'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profiles', require('./routes/api/profile'));
