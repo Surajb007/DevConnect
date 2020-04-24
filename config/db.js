@@ -8,6 +8,7 @@ const connectDB = async () => {
     await mongoose.connect(db, {
       useNewUrlParser: true, // To avoid warnings
       useUnifiedTopology: true, // To avoid warnings
+      useCreateIndex: true, //To avoid warnings
     });
     console.log('MongoDB is up...');
   } catch (err) {
